@@ -15,8 +15,10 @@ function App() {
           console.count("how many times it rendered");
           fetch("https://jsonplaceholder.typicode.com/photos")
                .then((response) => response.json())
-               .then((json) => {
-                    getData(json);
+               .then((data) => {
+                    data = data.filter((entry) => entry.id < 100);
+                    console.log(data);
+                    getData(data);
                });
      }, []);
      return (
